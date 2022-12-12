@@ -25,7 +25,7 @@ function addBookToLibrary() {
             const content = document.createElement('div');
             content.classList.add('card');
             content.setAttribute("id", `${lastElement.title}`);
-            content.innerHTML = `<h1>${lastElement.title}</h1><p>${lastElement.author}</p><p>${lastElement.page}</p><div class="button-container"><button id="delete-button" value="${lastElement.title}"></button><button id="read-button" value="${lastElement.title}" class="${lastElement.read}"></button></div>`;            
+            content.innerHTML = `<h1>${lastElement.title}</h1><p>${lastElement.author}</p><p>${lastElement.page} pages</p><div class="button-container"><button id="delete-button" value="${lastElement.title}"></button><button id="read-button" value="${lastElement.title}" class="${lastElement.read}"></button></div>`;            
             container.appendChild(content);
             
         } else {
@@ -33,7 +33,7 @@ function addBookToLibrary() {
             const content = document.createElement('div');
             content.classList.add('card');
             content.setAttribute("id", `${myLibrary[0].title}`);
-            content.innerHTML = `<h1>${myLibrary[0].title}</h1><p>${myLibrary[0].author}</p><p>${myLibrary[0].page}</p><div class="button-container"><button id="delete-button" value="${myLibrary[0].title}"></button><button id="read-button" value="${myLibrary[0].title}" class="${myLibrary[0].read}"></button></div>`;
+            content.innerHTML = `<h1>${myLibrary[0].title}</h1><p>${myLibrary[0].author}</p><p>${myLibrary[0].page} pages</p><div class="button-container"><button id="delete-button" value="${myLibrary[0].title}"></button><button id="read-button" value="${myLibrary[0].title}" class="${myLibrary[0].read}"></button></div>`;
             container.appendChild(content);
         }
 }
