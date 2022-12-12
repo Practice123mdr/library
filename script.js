@@ -22,14 +22,15 @@ function addBookToLibrary() {
             const content = document.createElement('div');
             content.classList.add('card');
             content.setAttribute("id", `${lastElement.title}`);
-            content.innerHTML = `<h1>${lastElement.title}</h1><p>${lastElement.author}</p><p>${lastElement.page}</p><div class="button-container"><button id="delete-button" value="${lastElement.title}"></button><button id="read-button" value=${lastElement.title}></button></div>`;            
+            content.innerHTML = `<h1>${lastElement.title}</h1><p>${lastElement.author}</p><p>${lastElement.page}</p><div class="button-container"><button id="delete-button" value="${lastElement.title}"></button><button id="read-button" value="${lastElement.title}" class="${lastElement.read}"></button></div>`;            
             container.appendChild(content);
+            
         } else {
             const container = document.querySelector(".container");
             const content = document.createElement('div');
             content.classList.add('card');
             content.setAttribute("id", `${myLibrary[0].title}`);
-            content.innerHTML = `<h1>${myLibrary[0].title}</h1><p>${myLibrary[0].author}</p><p>${myLibrary[0].page}</p><div class="button-container"><button id="delete-button" value="${myLibrary[0].title}"></button><button id="read-button" value=${myLibrary[0].title}></button></div>`;
+            content.innerHTML = `<h1>${myLibrary[0].title}</h1><p>${myLibrary[0].author}</p><p>${myLibrary[0].page}</p><div class="button-container"><button id="delete-button" value="${myLibrary[0].title}"></button><button id="read-button" value="${myLibrary[0].title}" class="${myLibrary[0].read}"></button></div>`;
             container.appendChild(content);
         }
 }
@@ -39,6 +40,8 @@ submitButton[0].addEventListener("click", (event) => {
     let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
     myLibrary.push(newBook);
     addBookToLibrary();
+    modal.style.display = "none";
+    resetFields();
 });
 
 document.body.addEventListener("click", (event) => {
@@ -61,13 +64,13 @@ document.body.addEventListener("click", (event) => {
                 switch (myLibrary[i].read) {
                     case true: 
                     if (myLibrary[i].read === true) {
-                        event.target.style.backgroundColor = "green";
+                        event.target.style.backgroundColor = "red";
                     }
                         myLibrary[i].read = false;
                         break;
                     case false:
                         if (myLibrary[i].read === false) {
-                            event.target.style.backgroundColor = "red";
+                            event.target.style.backgroundColor = "green";
                         }
                         myLibrary[i].read = true;
                         break;
@@ -77,6 +80,15 @@ document.body.addEventListener("click", (event) => {
     }
 });
 
+function resetFields() {
+    const inputArray = document.querySelectorAll("input");
+    console.log(inputArray)
+    inputArray.forEach(function (input) {
+        if (input.classList != "submitButton")
+        input.value = "";
+        inputArray[3].checked = false;
+    });
+}
 // Get the modal
 const modal = document.getElementById("myModal");
 
