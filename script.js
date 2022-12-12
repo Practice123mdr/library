@@ -22,14 +22,14 @@ function addBookToLibrary() {
             const content = document.createElement('div');
             content.classList.add('card');
             content.setAttribute("id", `${lastElement.title}`);
-            content.innerHTML = `<h1>${lastElement.title}</h1><p>${lastElement.author}</p><p>${lastElement.page}</p><button id="delete-button" value="${lastElement.title}">X</button><button id="read-button" value=${lastElement.title}>V</button>`;            
+            content.innerHTML = `<h1>${lastElement.title}</h1><p>${lastElement.author}</p><p>${lastElement.page}</p><div class="button-container"><button id="delete-button" value="${lastElement.title}"></button><button id="read-button" value=${lastElement.title}></button></div>`;            
             container.appendChild(content);
         } else {
             const container = document.querySelector(".container");
             const content = document.createElement('div');
             content.classList.add('card');
             content.setAttribute("id", `${myLibrary[0].title}`);
-            content.innerHTML = `<h1>${myLibrary[0].title}</h1><p>${myLibrary[0].author}</p><p>${myLibrary[0].page}</p><button id="delete-button" value="${myLibrary[0].title}">X</button><button id="read-button" value=${myLibrary[0].title}>V</button>`;
+            content.innerHTML = `<h1>${myLibrary[0].title}</h1><p>${myLibrary[0].author}</p><p>${myLibrary[0].page}</p><div class="button-container"><button id="delete-button" value="${myLibrary[0].title}"></button><button id="read-button" value=${myLibrary[0].title}></button></div>`;
             container.appendChild(content);
         }
 }
@@ -60,9 +60,15 @@ document.body.addEventListener("click", (event) => {
             if (event.target.value == myLibrary[i].title) {
                 switch (myLibrary[i].read) {
                     case true: 
+                    if (myLibrary[i].read === true) {
+                        event.target.style.backgroundColor = "green";
+                    }
                         myLibrary[i].read = false;
                         break;
                     case false:
+                        if (myLibrary[i].read === false) {
+                            event.target.style.backgroundColor = "red";
+                        }
                         myLibrary[i].read = true;
                         break;
                 }

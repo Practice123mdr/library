@@ -46,7 +46,7 @@ form {
     border: black 1px solid;
     height: 200px;
     margin: 10px;
-    overflow: hidden;
+
 }
 
 .card h1 {
@@ -57,12 +57,13 @@ form {
     color: #344D67;
     min-height: 70px;
     max-height: 70px;
+  
 }
 
 .card p {
     font-family: 'Roboto', sans-serif;
     font-size: 1em;
-
+    text-align: center;
 }
 
 .modal {
@@ -163,14 +164,28 @@ form label {
     height: 30px;
 }
 
-.read-div {
-    background-color: blue;
-
-}
-
-.delete-div {
+#delete-button {
+    background-image: url("images/delete.svg");
+    height: 25px;
+    width: 25px;
     background-color: red;
-
+    border: none;
+    cursor: pointer;
 }
 
+#read-button {
+    background-image: url("images/done.svg");
+    height: 25px;
+    width: 25px;
+    background-color: green;
+    border: none;
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 50px;
+}
 
