@@ -85,7 +85,6 @@ document.body.addEventListener("click", (event) => {
 
 function resetFields() {
     const inputArray = document.querySelectorAll("input");
-    console.log(inputArray)
     inputArray.forEach(function (input) {
         if (input.classList != "submitButton")
         input.value = "";
@@ -96,7 +95,6 @@ function resetFields() {
 showModal.onclick = function() {
   modal.style.display = "block";
 }
-
 
 closeSpan.onclick = function() {
   modal.style.display = "none";
