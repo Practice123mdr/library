@@ -38,14 +38,13 @@ function addBookToLibrary() {
         }
 }
 
-submitButton[0].addEventListener("click", (event) => {
-    event.preventDefault();
+function submitFunction() {
     let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
     myLibrary.push(newBook);
     addBookToLibrary();
     modal.style.display = "none";
     resetFields();
-});
+}
 
 document.body.addEventListener("click", (event) => {
     if (event.target.id == "delete-button") {
@@ -54,7 +53,7 @@ document.body.addEventListener("click", (event) => {
                 let deleteThisBook = event.target.value;
                 let indexOfX = myLibrary.findIndex(element => element.title == deleteThisBook);
                 myLibrary.splice(indexOfX, 1);
-                return card[i].remove();
+                card[i].remove();
             }
        }
     }
