@@ -18,23 +18,22 @@ function Book(title, author, page, read) {
     this.title = title,
     this.author = author,
     this.page = page,
-    this.read = Boolean(read)
+    this.read = Boolean(read);
 }
 
 function addBookToLibrary() {
         if (myLibrary.length > 1) {
             let lastElement = myLibrary[myLibrary.length - 1];
             const container = document.querySelector(".container");
-            const content = document.createElement('div');
-            content.classList.add('card');
+            const content = document.createElement("div");
+            content.classList.add("card");
             content.setAttribute("id", `${lastElement.title}`);
-            content.innerHTML = `<h1>${lastElement.title}</h1><p>${lastElement.author}</p><p>${lastElement.page} pages</p><div class="button-container"><button id="delete-button" value="${lastElement.title}"></button><button id="read-button" value="${lastElement.title}" class="${lastElement.read}"></button></div>`;            
+            content.innerHTML = `<h1>${lastElement.title}</h1><p>${lastElement.author}</p><p>${lastElement.page} pages</p><div class="button-container"><button id="delete-button" value="${lastElement.title}"></button><button id="read-button" value="${lastElement.title}" class="${lastElement.read}"></button></div>`;
             container.appendChild(content);
-            
         } else {
             const container = document.querySelector(".container");
-            const content = document.createElement('div');
-            content.classList.add('card');
+            const content = document.createElement("div");
+            content.classList.add("card");
             content.setAttribute("id", `${myLibrary[0].title}`);
             content.innerHTML = `<h1>${myLibrary[0].title}</h1><p>${myLibrary[0].author}</p><p>${myLibrary[0].page} pages</p><div class="button-container"><button id="delete-button" value="${myLibrary[0].title}"></button><button id="read-button" value="${myLibrary[0].title}" class="${myLibrary[0].read}"></button></div>`;
             container.appendChild(content);
@@ -67,7 +66,7 @@ document.body.addEventListener("click", (event) => {
         for (let i = 0; i < myLibrary.length; i++) {
             if (event.target.value == myLibrary[i].title) {
                 switch (myLibrary[i].read) {
-                    case true: 
+                    case true:
                     if (myLibrary[i].read === true) {
                         event.target.style.backgroundColor = "rgba(255, 4, 4, 0.8)";
                     }
@@ -100,10 +99,10 @@ showModal.onclick = function() {
 
 closeSpan.onclick = function() {
   modal.style.display = "none";
-}
+};
 
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
