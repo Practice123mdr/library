@@ -1,4 +1,4 @@
-const submitButton = document.getElementsByClassName("submitButton");
+const submitButton = document.getElementsByClassName("submit-buttton");
 const titleInput = document.getElementById("title");
 const authorInput = document.getElementById("author");
 const pagesInput = document.getElementById("pages");
@@ -8,6 +8,9 @@ const addButton = document.getElementById("add-button");
 const modal = document.getElementById("myModal");
 const showModal = document.getElementById("add-button");
 const closeSpan = document.getElementsByClassName("close")[0];
+const form = document.getElementById("my-form").addEventListener("submit", function (event) {
+    event.preventDefault();
+  });
 
 let myLibrary = [];
 
