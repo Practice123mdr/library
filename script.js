@@ -66,13 +66,13 @@ document.body.addEventListener("click", (event) => {
                 switch (myLibrary[i].read) {
                     case true: 
                     if (myLibrary[i].read === true) {
-                        event.target.style.backgroundColor = "red";
+                        event.target.style.backgroundColor = "rgba(255, 4, 4, 0.8)";
                     }
                         myLibrary[i].read = false;
                         break;
                     case false:
                         if (myLibrary[i].read === false) {
-                            event.target.style.backgroundColor = "green";
+                            event.target.style.backgroundColor = "rgba(76, 255, 5, 0.8)";
                         }
                         myLibrary[i].read = true;
                         break;
